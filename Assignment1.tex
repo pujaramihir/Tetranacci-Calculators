@@ -1,0 +1,108 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.5cm,botom=1.5cm]{geometry}
+
+%Lorem Ipusm dolor please don't leave any in you final report ;)
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+%give us the Capital H that we all know and love
+\usepackage{float}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+
+\title{Department Computer Science and Software Engineering \\ Concordia University \\ COMP 352: Data Structure and Algorithms\\Assignment 1}
+\author{Mihir Piyushkumar Pujara - 40025592\hspace{1em}\\m\_pujar@encs.concordia.ca}
+\date{}
+\begin{document}
+	\maketitle
+	\section*{Written Questions}
+	\subsection*{Question 1}
+    \subsubsection*{a)}
+    {\SetAlgoNoLine%
+    \begin{algorithm}
+        \DontPrintSemicolon % Some LaTeX compilers require you to use\dontprintsemicolon instead
+        \KwIn{Array of integer}
+        \KwOut{Modified Array}
+        
+        $rightStart \gets 0$
+        
+        \eIf{$\Call{length}{input}\%2 == 0$}{
+            $rightStart \gets \Call{length}{input}/2$
+        }{
+            $rightStart \gets (\Call{length}{input}/2) + 1$
+        }
+        
+        $i \gets 0$
+        
+        \While{$i < \Call{length}{input}/2$} {
+            \If{$i+1 < \Call{length}{input}/2$}{
+                $temp \gets input[i]$
+                
+                $input[i] \gets input[i+1]$
+                
+                $input[i+1] \gets temp$
+            }
+            
+            \If{$rightStart + i + 1 < \Call{Length}{input}$}{
+                $input[rightStart+i+1] \gets input[rightStart+i]+input[rightStart+i+1]$
+            }
+            
+        }
+        
+        \Return{$input$}\;
+        \caption{MyAlgorithm(input)}
+    \end{algorithm}}%
+ 
+  
+    
+    \subsubsection*{b)}
+    {Time complexity of my algorithm, in terms of Big-O is $O(n)$}
+    \subsubsection*{c)}
+    {Space complexity of my algorithm, in terms of Big-O is $O(1)\hspace{0.2cm} (O(3))$}
+
+    \newpage
+	
+	\subsection*{Question 2}
+	
+	\subsubsection*{a) $2n^5\hspace{0.1cm}log\hspace{0.05cm}n\hspace{0.1cm}is\hspace{0.1cm}O(n^7\hspace{0.1cm}log\hspace{0.1cm}n)$}
+	Proof,\\
+	Here, {$f(n)$} = {2n^5log\hspace{0.1cm}n} \\\\
+	{2n^5log\hspace{0.1cm}n \leq 2n^7log\hspace{0.1cm}n}, \hspace{0.5cm} for \hspace{0.2cm} n \geq 2 \\
+	{so\hspace{0.1cm}any\hspace{0.1cm}n \geq 2} \\
+	{2n^5log\hspace{0.1cm}n \leq 2n^7log\hspace{0.1cm}n} \\
+	\rightarrow \hspace{0.1cm} $g(n) = n^7log\hspace{0.1cm}n$ 
+	   
+	\newpage
+	
+	\subsection*{Question 3}
+	
+	\subsubsection*{a)}
+	{$f(n)$ of this algorithm is $8n+4$ for $n \geq 2$ \\}
+	{$ 8n \leq 8n$ for $ n \geq 2 $ \\}
+	{$ 4 \leq 4n$ for $ n \geq 2 $ \\}
+	{so, for any $n \geq 2$,\\}
+	{$8n+4 \leq 12n $ \rightarrow consider \hspace{.1cm} $c=12, n_0=2$ \rightarrow $ g(n) = n$ \\ \\}
+	{Consequently, this\hspace{.1cm}$f(n)$\hspace{.1cm}is\hspace{.1cm} $O(n)$}
+	\\\\
+	{Now,\\}
+	{$8n+4 \geq 8n $ for $ n \geq 2$}\\
+	{$8n \geq n $ for $ n \geq 2$}\\
+	{\rightarrow consider $ c = 1, n_0 = 2 $ \rightarrow $ g(n) = n$}\\
+	{Consequently, this $ f(n) $ is $ O(n) $ and \hspace{.1cm} also \hspace{.1cm} is $ \Omega(n)$}
+	
+	\subsubsection*{b)}
+	{Here, MyAlgorithm is run with input $ A = (4,10,5,1,3) $ and $ n = 5$ \\ \\}
+	{After trace run this algorithm, value of A is $ (1,4,5,3,10) $ }
+	\subsubsection*{c)}
+	answer
+	\subsubsection*{d)}
+	answer
+	\subsubsection*{e)}
+	{}
+
+		
+\end{document}
