@@ -81,28 +81,85 @@
 	\subsection*{Question 3}
 	
 	\subsubsection*{a)}
-	{$f(n)$ of this algorithm is $8n+4$ for $n \geq 2$ \\}
-	{$ 8n \leq 8n$ for $ n \geq 2 $ \\}
-	{$ 4 \leq 4n$ for $ n \geq 2 $ \\}
+	{$f(n)$ of this algorithm is $8n^2+4$ for $n \geq 2$ \\}
+	{$ 8n^2 \leq 8n^2$ for $ n \geq 2 $ \\}
+	{$ 4 \leq 4n^2$ for $ n \geq 2 $ \\}
 	{so, for any $n \geq 2$,\\}
-	{$8n+4 \leq 12n $ \rightarrow consider \hspace{.1cm} $c=12, n_0=2$ \rightarrow $ g(n) = n$ \\ \\}
-	{Consequently, this\hspace{.1cm}$f(n)$\hspace{.1cm}is\hspace{.1cm} $O(n)$}
+	{$8n^2+4 \leq 12n^2 $ \rightarrow consider \hspace{.1cm} $c=12, n_0=2$ \rightarrow $ g(n) = n^2$ \\ \\}
+	{Consequently, this\hspace{.1cm}$f(n)$\hspace{.1cm}is\hspace{.1cm} $O(n^2)$}
 	\\\\
 	{Now,\\}
-	{$8n+4 \geq 8n $ for $ n \geq 2$}\\
-	{$8n \geq n $ for $ n \geq 2$}\\
+	{$8n^2+4 \geq 8n^2 $ for $ n \geq 2$}\\
+	{$8n^2 \geq n^2 $ for $ n \geq 2$}\\
 	{\rightarrow consider $ c = 1, n_0 = 2 $ \rightarrow $ g(n) = n$}\\
-	{Consequently, this $ f(n) $ is $ O(n) $ and \hspace{.1cm} also \hspace{.1cm} is $ \Omega(n)$}
+	{Consequently, this $ f(n) $ is $ O(n^2) $ and \hspace{.1cm} also \hspace{.1cm} is $ \Omega(n^2)$}
 	
 	\subsubsection*{b)}
 	{Here, MyAlgorithm is run with input $ A = (4,10,5,1,3) $ and $ n = 5$ \\ \\}
-	{After trace run this algorithm, value of A is $ (1,4,5,3,10) $ }
+	{After trace run this algorithm, value of A is $ (1,3,4,5,10) $ }
 	\subsubsection*{c)}
-	answer
+	{This algorithm is sorting the given array.}\\
+	{It can be asserted by checking every next element is grater or equal of current element.}
+	
+	
 	\subsubsection*{d)}
-	answer
+	{Yes, the runtime of MyAlgorithm can be imporved by using partitioning the array and then sort it. Divide and conquer algorithm is very useful for this. It divides large array into small sub arrays and sort the sub arrays recursively.}
 	\subsubsection*{e)}
-	{}
+	{Liner recursion is used in MyAlgorithm and Yes, MyAlgorithm is tail-recursive.}
 
-		
+	\newpage
+	\section*{Programming Questions}
+	\subsection*{a)}
+	\subsubsection*{First recursive version}
+	{\SetAlgoNoLine%
+    \begin{algorithm}
+        \Function{linearTetranacci}{n}
+        
+            \DontPrintSemicolon % Some LaTeX compilers require you to use\dontprintsemicolon instead
+            \KwIn{integer number}
+            \KwOut{Array of last four value of tetranacci series of given number}
+            
+            
+            \eIf{$ n \leq 4$}{
+                \Return{$ \{0,0,1,1\} $}
+            }{
+                $ temp \gets linearTetranacci(n - 1)$ \\
+                \Return{$ \{temp[1],temp[2],temp[3],temp[1]+temp[2]+temp[3]+temp[4]\} $}
+            }
+        \EndFunction
+        \caption{linearTetranacci(n)}
+    \end{algorithm}}%
+    
+    \subsubsection*{Second recursive version}
+    {\SetAlgoNoLine%
+    \begin{algorithm}
+        \Function{binaryTetranacci}{n}
+        
+            \DontPrintSemicolon % Some LaTeX compilers require you to use\dontprintsemicolon instead
+            \KwIn{integer number}
+            \KwOut{tetranacci number of given number}
+            
+            
+            \uIf{$ n \leq 2$}{
+                \Return{$ 0 $}
+            }
+            \uElseIf{$ n \leq 4$}{
+               
+                \Return{$ 1 $}
+            }
+            \Else{
+                \Return{$(\Call{binaryTetranacci}{n-1}*2)-\Call{binaryTetranacci}{n-4}$}
+            }
+        \EndFunction
+        \caption{linearTetranacci(n)}
+    \end{algorithm}}%
+    
+    \subsection*{b)}
+    answer
+    \subsection*{c)}
+    {No, From above two algorithms no one is using tail recursion. In first algorithm i am calling function first them perform addition operation and In second algorithm in last return statement after function call i am performing arithmatic operations like multiplication and substraction.\\\\}
+    {Yes, A tail-recursive version of tetranacci calculator can be designed.}
+    \subsubsection*{Tail-recursive version}
+    
+    
 \end{document}
