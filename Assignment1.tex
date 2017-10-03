@@ -89,8 +89,13 @@
 	{$4n \leq 10^8n^2+5n^4+7000n^3+n  \leq 4*10^8n^6$ \rightarrow consider \hspace{.1cm} $c=4 * 10^6, n_0=1$ \\ \\}
 	{So,\hspace{0.1cm} $10^8n^2+5n^4+7000n^3+n\hspace{0.1cm} is\hspace{0.1cm} \Theta(n^6)$}
 	
-	\subsubsection*{c)}
-	Answer
+	\subsubsection*{c) $n^n\hspace{.1cm}is\hspace{.1cm}O(n!)$}
+	{Proof,\\}
+	Here, {$f(n)$} = {$n^n$} \\\\
+	{$\lim_{n\to\infty}\dfrac{n^n}{n!} \neq 0$\\\\}
+	{So,\hspace{0.1cm} $n^n\hspace{0.1cm} is\hspace{0.1cm}not\hspace{0.1cm} O(n!)$}
+	
+	
 	\subsubsection*{d) $0.01n^3+0.0000001n^7\hspace{0.1cm} is\hspace{0.1cm} \Theta(n^6)$}
 	{Proof,\\}
 	Here, {$f(n)$} = {$0.01n^3+0.0000001n^7$} \\\\
@@ -106,8 +111,11 @@
 	\\
 	{So,\hspace{0.1cm} $n^2+0.0000001n^5\hspace{0.1cm} is\hspace{0.1cm} not \hspace{0.1cm} \Omega(n^3)$}
 	
-	\subsubsection*{f)}
-	Answer
+	\subsubsection*{f) $n!\hspace{.1cm}is\hspace{.1cm}\Omega(2^n)$}
+	{Proof,\\}
+	Here, {$f(n)$} = {$n!$} \\\\
+	{$\lim_{n\to\infty}\dfrac{n!}{2^n} \rightarrow \infty$\\}
+	{So,\hspace{0.1cm} $n!\hspace{0.1cm} is\hspace{0.1cm} \Omega(2^n)$}
 	
 	\newpage
 	
@@ -206,6 +214,27 @@
     {No, From above two algorithms no one is using tail recursion. In first algorithm i am calling function first them perform addition operation and In second algorithm in last return statement after function call i am performing arithmatic operations like multiplication and substraction.\\\\}
     {Yes, A tail-recursive version of tetranacci calculator can be designed.}
     \subsubsection*{Tail-recursive version}
-    
+    {\SetAlgoNoLine%
+    \begin{algorithm}
+        \Function{tailRecursionTetranacci}{n,a,b,c,d}
+        
+            \DontPrintSemicolon % Some LaTeX compilers require you to use\dontprintsemicolon instead
+            \KwIn{integer number and first 4 no of tetranacci series}
+            \KwOut{tetranacci number of given number}
+            
+            
+            \uIf{$ n \leq 2$}{
+                \Return{$ b $}
+            }
+            \uElseIf{$ n \leq 4$}{
+               
+                \Return{$ d $}
+            }
+            \Else{
+                \Return{$(\Call{tailRecursionTetranacci}{n-1,b,c,d,a+b+c+d}$}
+            }
+        \EndFunction
+        \caption{tailRecursionTetranacci(n,a,b,c,d)}
+    \end{algorithm}}%
     
 \end{document}
